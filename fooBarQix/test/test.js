@@ -36,7 +36,7 @@ describe('Coding Dojo - FooBarQix', function() {
     }); 
 
     it('should return "Bar" when the value is "10"', function() {
-      assert.equal(foobarqix.compute("10"), "Bar*");
+      assert.equal(foobarqix.compute("10"), "Bar");
     });
 
     it('should return "Foo" when the value is "13"', function() {
@@ -53,12 +53,12 @@ describe('Coding Dojo - FooBarQix', function() {
   });
 
   describe('We must keep a trace of 0', function() {
-    xit('should return "1*1" when the value is "101"', function() {
-      assert.equal(foobarqix.compute("101"), "1*1");
+    it('should return "1*1" when the value is "101"', function() {
+      assert.equal(foobarqix.computeZero("101"), "1*1");
     });
 
     it('should return "FooFoo*Foo" when the value is "303"', function() {
-      assert.equal(foobarqix.compute("303"), "FooFoo*Foo");
+      assert.equal(foobarqix.computeZero("303"), "FooFoo*Foo");
     });
   });
 });

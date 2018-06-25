@@ -19,20 +19,45 @@ var FooBarQix = {
 
         for (var i =0; i <= string.length -1; i++)
         {
-            for (const key in mapping) 
+            if(mapping[string[i]])  
             {
-                if(string[i] === key)  
-                {
-                    result+= mapping[key];
-                } 
+                result+= mapping[string[i]];
             }
-
-            if(string[i] === "0") {
-                result += "0";
-            } 
         }
-        if (!result.length) {
+
+        if(!result.length) {
             result = string;
+        }
+
+        return result;
+    },
+
+    computeZero: function(string) {
+        var result = '';
+
+        var mapping = {
+           "3": "Foo",
+           "5": "Bar" ,
+           "7": "Qix",
+        };
+
+
+        for (const key in mapping) 
+        {
+            if(string % key === 0)  
+            {
+                result+= mapping[key];
+            }
+        }
+
+        for (var i =0; i <= string.length -1; i++)
+        {
+            if(mapping[string[i]])  
+            {
+                result+= mapping[string[i]];
+            } else {
+                result += string[i];
+            }
         }
 
         result = result.replace('0', '*');
