@@ -1,11 +1,17 @@
 import { TennisGame } from './TennisGame';
 
+const scoreMap = {
+  0: 'Love',
+  1: 'Fifteen',
+  2: 'Thirty',
+  3: 'Forty'
+}
 
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
   private m_score2: number = 0;
   private player1Name: string;
-  private player2Name: string;
+  private player2Name: string; 
 
   constructor(player1Name: string, player2Name: string) {
     this.player1Name = player1Name;
@@ -18,6 +24,14 @@ export class TennisGame1 implements TennisGame {
     else
       this.m_score2 += 1;
   }
+
+  // map = {}
+  // 0 - Love
+  // 1 - Fifteen
+  // 2 - ..
+
+  // si score1 != score2 && score1 < 4 || score2 <4
+  // return map[score1] - map[score2]
 
   getScore(): string {
     let score: string = '';
@@ -47,25 +61,12 @@ export class TennisGame1 implements TennisGame {
       else score = 'Win for player2';
     }
     else {
-      for (let i = 1; i < 3; i++) {
-        if (i === 1) tempScore = this.m_score1;
-        else { score += '-'; tempScore = this.m_score2; }
-        switch (tempScore) {
-          case 0:
-            score += 'Love';
-            break;
-          case 1:
-            score += 'Fifteen';
-            break;
-          case 2:
-            score += 'Thirty';
-            break;
-          case 3:
-            score += 'Forty';
-            break;
-        }
-      }
+      score = this.getBasicScore()
     }
     return score;
+  }
+
+  private getBasicScore(): string {
+    return `${scoreMap[this.m_score1]}-${scoreMap[this.m_score2]}`
   }
 }
