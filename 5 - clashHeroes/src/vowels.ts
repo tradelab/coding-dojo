@@ -10,5 +10,14 @@
  */
 
 export default (string: string) => {
-    
+    let i = 0;
+    const voyelle = ['a', 'e', 'i', 'o', 'u'];
+    string.toLowerCase().split("").forEach(element => {
+        voyelle.filter(lettre => {
+            if(lettre === element){
+                i++;
+            }
+        });
+    });
+    return i;
 }

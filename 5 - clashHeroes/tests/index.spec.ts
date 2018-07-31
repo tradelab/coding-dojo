@@ -6,35 +6,35 @@ import vowels from '../src/vowels';
 import anagrams from '../src/anagrams';
 
 /** PYRAMIDE */
-// describe('pyramid', () => {
-//     it('return pyramid to the right when input is 2', () =>{
-//         const stars = '* \n* * \n* \n';
-//         expect(pyramid(2)).to.be.equals(stars);
-//     });
-// });
+describe('pyramid', () => {
+    it('return pyramid to the right when input is 2', () =>{
+        const stars = '* \n* * \n* \n';
+        expect(pyramid(2)).to.be.equals(stars);
+    });
+});
 
-// describe('pyramid', () => {
-//     it('return pyramid to the right when input is 3', () =>{
-//         const stars = '* \n* * \n* * * \n* * \n* \n';
-//         expect(pyramid(3)).to.be.equals(stars);
-//     });
-// });
+describe('pyramid', () => {
+    it('return pyramid to the right when input is 3', () =>{
+        const stars = '* \n* * \n* * * \n* * \n* \n';
+        expect(pyramid(3)).to.be.equals(stars);
+    });
+});
 
 /** PALINDROME */
-// describe('Palindrome function', () => { 
-//     it('should return true if passed string is a palindrome', () => {
-//       expect(palindrome('aba')).to.be.true;
-//       expect(palindrome('1000000001')).to.be.true;
-//       expect(palindrome('pennep')).to.be.true;
-//     });
+describe('Palindrome function', () => { 
+    it('should return true if passed string is a palindrome', () => {
+      expect(palindrome('aba')).to.be.true;
+      expect(palindrome('1000000001')).to.be.true;
+      expect(palindrome('pennep')).to.be.true;
+    });
   
-//     it('should return false if passed string is not a palindrome', () => {
-//       expect(palindrome(' aba')).to.be.false; //.toBeFalsy();
-//       expect(palindrome('aba ')).to.be.false;
-//       expect(palindrome('Fish hsif')).to.be.false;
-//       expect(palindrome('greetings')).to.be.false;
-//     });
-// });
+    it('should return false if passed string is not a palindrome', () => {
+      expect(palindrome(' aba')).to.be.false; //.toBeFalsy();
+      expect(palindrome('aba ')).to.be.false;
+      expect(palindrome('Fish hsif')).to.be.false;
+      expect(palindrome('greetings')).to.be.false;
+    });
+});
 
 /** MATRIX SPIRAL */
 // describe('Matrix function', () => {
@@ -65,25 +65,25 @@ import anagrams from '../src/anagrams';
 //   });
 
 /** VOWELS */
-// describe('Vowels function', () => {  
-//     it('should return correct number of vowels in given string', () => {
-//         expect(vowels('aeiou')).to.equal(5);
-//         expect(vowels('Adam')).to.equal(2);
-//         expect(vowels('Hello there!')).to.equal(4);
-//     });
-// });
+describe('Vowels function', () => {  
+    it('should return correct number of vowels in given string', () => {
+        expect(vowels('aeiou')).to.equal(5);
+        expect(vowels('Adam')).to.equal(2);
+        expect(vowels('Hello there!')).to.equal(4);
+    });
+});
 
 /** ANAGRAMS */
-// describe('Anagrams function', () => { 
-//     it('should return true if passed string is an anagram', () => {
-//       expect(anagrams('hello', 'llohe')).to.be.true
-//       expect(anagrams('Whoa! Hi!', 'Hi! Whoa!')).to.be.true
-//       expect(anagrams('RAIL! SAFETY!', 'fairy tales')).to.be.true
-//     });
+describe('Anagrams function', () => { 
+    it('should return true if passed string is an anagram', () => {
+      expect(anagrams('hello', 'llohe')).to.be.true
+      expect(anagrams('Whoa! Hi!', 'Hi! Whoa!')).to.be.true
+      expect(anagrams('RAIL! SAFETY!', 'fairy tales')).to.be.true
+    });
   
-//     it('should return false if passed string is not an anagram', () => {
-//       expect(anagrams('One One', 'Two two two')).to.be.false;
-//       expect(anagrams('One one', 'One one c')).to.be.false;
-//       expect(anagrams('A tree, a life, a bench', 'A tree, a fence, a yard')).to.be.false;
-//     });
-//   });
+    it('should return false if passed string is not an anagram', () => {
+      expect(anagrams('One One', 'Two two two')).to.be.false;
+      expect(anagrams('One one', 'One one c')).to.be.false;
+      expect(anagrams('A tree, a life, a bench', 'A tree, a fence, a yard')).to.be.false;
+    });
+  });
