@@ -14,4 +14,41 @@
 
 export default (stringA, stringB) => {
 
+  let occurencesA = {};
+  stringA.split('').forEach(letterA => {
+    const letter = letterA.toLowerCase();
+
+    if (letter.match('[a-z]')) {
+      if (occurencesA[letter]) {
+        occurencesA[letter]++;
+      } else {
+        occurencesA[letter] = 1;
+      }
+    }
+  });
+
+  let occurencesB = {};
+  stringB.split('').forEach(letterB => {
+    const letter = letterB.toLowerCase();
+
+    if (letter.match('[a-z]')) {
+      if (occurencesB[letter]) {
+        occurencesB[letter]++;
+      } else {
+        occurencesB[letter] = 1;
+      }
+    }
+  });
+
+  let isEqual = false;
+
+  isEqual = Object.keys(occurencesA).length === Object.keys(occurencesB).length;
+
+  Object.keys(occurencesA).forEach(letterA => {
+    if (occurencesB[letterA] !== occurencesA[letterA]) {
+      isEqual = false;
+    }
+  });
+
+  return isEqual;
 }

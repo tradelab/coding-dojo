@@ -10,5 +10,7 @@
  */
 
 export default (string: string) => {
-    
+  const vowels: string[] = ['a', 'e', 'u', 'o', 'i', 'y'];
+
+  return  string.split('').filter(letter => vowels.includes(letter.toLocaleLowerCase())).length;
 }
