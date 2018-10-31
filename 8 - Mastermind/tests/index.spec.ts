@@ -20,4 +20,7 @@ describe('Mastermind', () => {
   it ('One color well placed and two colors miss placed', () => {
     expect(mastermind.evaluate(['blue','white','blue'], ['white','blue','blue'])).to.deep.equal([1,2])
   });
+  it ('same color several time miss placed', () => {
+    expect(mastermind.evaluate(['blue','white','blue'], ['white','white','blue'])).to.deep.equal([2,0])
+  });
 });
