@@ -1,0 +1,14 @@
+<iframe width="480" height="477" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+
+<script>
+		const Http = new XMLHttpRequest();
+		const url='https://europe-west1-coding-dojo-223717.cloudfunctions.net/display-cat';
+		Http.open("GET", url);
+		Http.send();
+		Http.onreadystatechange=(e)=>{
+			var response = JSON.parse(Http.responseText);
+			document.getElementsByTagName("iframe")[0].setAttribute("src", response.data.embed_url);
+			console.log(response.data.embed_url);
+		}
+</script>	
