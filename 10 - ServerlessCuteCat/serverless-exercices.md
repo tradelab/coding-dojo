@@ -17,3 +17,4 @@ Voici 2 exemples pour vous guider
 
 # Links
 https://console.cloud.google.com/functions/list?project=coding-dojo-223717
+https://www.geeksforgeeks.org/all-possible-binary-numbers-of-length-n-with-equal-sum-in-both-halves/
