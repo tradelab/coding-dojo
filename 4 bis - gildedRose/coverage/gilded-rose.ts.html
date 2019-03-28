@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>38/38</span>
+        <span class='fraction'>37/37</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.33% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>30/36</span>
+        <span class='fraction'>32/36</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>36/36</span>
+        <span class='fraction'>34/34</span>
       </div>
     </div>
   </div>
@@ -111,8 +111,7 @@
 66
 67
 68
-69
-70</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+69</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,6 +128,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -136,22 +148,12 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,16 +166,12 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,28 +198,31 @@ export class GildedRose {
         this.items = items;
     }
 &nbsp;
+    private increaseQuality(item: Item, numberIncrement = 1): number {
+        return item.quality &lt; 50 ? item.quality +  numberIncrement : <span class="branch-1 cbranch-no" title="branch not covered" >item.quality;</span>
+    }
+&nbsp;
+    private decreaseQuality(item: Item): number {
+        return item.name != 'Sulfuras, Hand of Ragnaros' ? item.quality - 1 : item.quality;
+    }
+&nbsp;
+    private countCheckSellIn(sellIn: number): number {
+        return (sellIn &gt;= 6 &amp;&amp; sellIn &lt; 11) ?  1 :
+            (sellIn &lt; 6 &amp;&amp; sellIn &lt; 11) ? 2 : 0;
+    }
+&nbsp;
     updateQuality() {
         for (let i = 0; i &lt; this.items.length; i++) {
             if (this.items[i].name != 'Aged Brie' &amp;&amp; this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (this.items[i].quality &gt; 0) {
-                    if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
-                        this.items[i].quality = this.items[i].quality - 1
-                    }
+                    this.items[i].quality = this.decreaseQuality(this.items[i]);
                 }
             } else {
+                this.items[i].quality = this.increaseQuality(this.items[i]);
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (this.items[i].quality &lt; 50) {
-                    this.items[i].quality = this.items[i].quality + 1
                     if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-                        if (this.items[i].sellIn &lt; 11) {
-                            <span class="missing-if-branch" title="else path not taken" >E</span>if (this.items[i].quality &lt; 50) {
-                                this.items[i].quality = this.items[i].quality + 1
-                            }
-                        }
-                        if (this.items[i].sellIn &lt; 6) {
-                            <span class="missing-if-branch" title="else path not taken" >E</span>if (this.items[i].quality &lt; 50) {
-                                this.items[i].quality = this.items[i].quality + 1
-                            }
-                        }
+                        this.items[i].quality = 
+                            this.increaseQuality(this.items[i], this.countCheckSellIn(this.items[i].sellIn));
                     }
                 }
             }
@@ -232,17 +233,13 @@ export class GildedRose {
                 if (this.items[i].name != 'Aged Brie') {
                     if (this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
                         if (this.items[i].quality &gt; 0) {
-                            if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
-                                this.items[i].quality = this.items[i].quality - 1
-                            }
+                            this.items[i].quality = this.decreaseQuality(this.items[i]);
                         }
                     } else {
-                        this.items[i].quality = this.items[i].quality - this.items[i].quality
+                        this.items[i].quality = 0
                     }
                 } else {
-                    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.items[i].quality &lt; 50) {
-                        this.items[i].quality = this.items[i].quality + 1
-                    }
+                    this.items[i].quality = this.increaseQuality(this.items[i]);
                 }
             }
         }
@@ -256,7 +253,7 @@ export class GildedRose {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 28 2019 17:53:03 GMT+0100 (CET)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 28 2019 18:33:29 GMT+0100 (CET)
 </div>
 </div>
 <script src="prettify.js"></script>
